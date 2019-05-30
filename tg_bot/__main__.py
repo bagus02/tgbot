@@ -25,7 +25,7 @@ I'm a group manager bot maintained by [this dude](tg://user?id={}). Big Thanks f
 
 and am fully Open-source you can find what makes me tick [here](github.com/bagus02/tgbot)!
 
-requests to my contact , https://t.me/aflky02, with any bugs or questions!
+requests to my contact , @aflky02, with any bugs or questions!
 
 _Want to add me to your group?_ [Click here!](telegram.me/DirtyRegetBot?startgroup=add)
 """
