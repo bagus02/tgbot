@@ -27,7 +27,7 @@ and am fully Open-source you can find what makes me tick [here](github.com/bagus
 
 requests to my contact , https://t.me/aflky02, with any bugs or questions!
 
-_Want to add me to your group?_ [Click here!](telegram.me/DirtyRegetBot?start=group=add)
+_Want to add me to your group?_ [Click here!](telegram.me/DirtyRegetBot?start?group=add)
 """
 
 HELP_STRINGS = """
