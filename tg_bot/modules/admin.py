@@ -1,6 +1,4 @@
 import html
-from typing import Optional, List
-from telegram import Message, Chat, Update, Bot, User
 from telegram import ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
