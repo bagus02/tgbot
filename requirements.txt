@@ -13,3 +13,5 @@ pillow
 alphabet_detector
 kbbi
 googletrans
+lxml
+bs4
