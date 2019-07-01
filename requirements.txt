@@ -9,8 +9,7 @@ py_translator
 bs4
 lxml
 pyowm
-geopy		
-wikipedia		
+geopy				
 alphabet_detector	
 kbbi	
 googletrans	
