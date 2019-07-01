@@ -1,7 +1,6 @@
 # tgbot
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f5d52bdb7984983a26cacf4b3a7d36c)](https://app.codacy.com/app/bagus02/tgbot?utm_source=github.com&utm_medium=referral&utm_content=bagus02/tgbot&utm_campaign=Badge_Grade_Settings)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e59551aa5907405a972db68649766c73)](https://app.codacy.com/app/bagus02/tgbot?utm_source=github.com&utm_medium=referral&utm_content=bagus02/tgbot&utm_campaign=Badge_Grade_Dashboard)
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 
