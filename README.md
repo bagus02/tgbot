@@ -2,8 +2,6 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e59551aa5907405a972db68649766c73)](https://app.codacy.com/app/bagus02/tgbot?utm_source=github.com&utm_medium=referral&utm_content=bagus02/tgbot&utm_campaign=Badge_Grade_Dashboard)
 
-[![Build Status](https://travis-ci.com/bagus02/tgbot.svg?branch=master)](https://travis-ci.com/bagus02/tgbot)
-
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 
 Originally a simple group management bot with multiple admin features, it has evolved, becoming extremely modular and 
