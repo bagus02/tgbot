@@ -9,4 +9,9 @@ py_translator
 bs4
 lxml
 pyowm
-geopy
+geopy		
+wikipedia		
+alphabet_detector	
+kbbi	
+googletrans	
+lxml
