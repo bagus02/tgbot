@@ -9,5 +9,8 @@ py_translator
 bs4
 lxml
 pyowm
-geopy
 pythonping
+wikipedia
+pillow
+alphabet_detector
+kbbi
