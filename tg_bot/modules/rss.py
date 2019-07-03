@@ -224,15 +224,6 @@ __help__ = """
 NOTE: In groups, only admins can add/remove RSS links to the group's subscription
 """
 
-__mod_name__ = "RSS Feed"
-
-job = updater.job_queue
-
-job_rss_set = job.run_once(rss_set, 5)
-job_rss_update = job.run_repeating(rss_update, interval=60, first=60)
-job_rss_set.enabled = True
-job_rss_update.enabled = True
-
 SHOW_URL_HANDLER = CommandHandler("rss", show_url, pass_args=True)
 ADD_URL_HANDLER = CommandHandler("addrss", add_url, pass_args=True)
 REMOVE_URL_HANDLER = CommandHandler("removerss", remove_url, pass_args=True)
