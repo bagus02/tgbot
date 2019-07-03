@@ -16,26 +16,26 @@ from tg_bot.modules.log_channel import loggable
 @user_admin
 @loggable
 def purge(bot: Bot, update: Update, args: List[str]) -> str:
-    spam = spamfilters(update.effective_message.text, update.effective_message.from_user.id, update.effective_chat.id)
-    if spam == True:
-        return update.effective_message.reply_text("I am disappointed with you, I will not hear your words now!")
     msg = update.effective_message  # type: Optional[Message]
     if msg.reply_to_message:
         user = update.effective_user  # type: Optional[User]
         chat = update.effective_chat  # type: Optional[Chat]
         if can_delete(chat, bot.id):
             message_id = msg.reply_to_message.message_id
+            delete_to = msg.message_id - 1
             if args and args[0].isdigit():
-                delete_to = message_id + int(args[0])
-            else:
-                delete_to = msg.message_id - 1
+                new_del = message_id + int(args[0])
+                # No point deleting messages which haven't been written yet.
+                if new_del < delete_to:
+                    delete_to = new_del
+
             for m_id in range(delete_to, message_id - 1, -1):  # Reverse iteration over message ids
                 try:
                     bot.deleteMessage(chat.id, m_id)
                 except BadRequest as err:
                     if err.message == "Message can't be deleted":
-                        bot.send_message(chat.id, "Cannot delete all messages. The message might be too long, I might "
-                                                  "do not have the right to delete, or this might not be a supergroup.")
+                        bot.send_message(chat.id, "Cannot delete all messages. The messages may be too old, I might "
+                                                  "not have delete rights, or this might not be a supergroup.")
 
                     elif err.message != "Message to delete not found":
                         LOGGER.exception("Error while purging chat messages.")
@@ -44,24 +44,24 @@ def purge(bot: Bot, update: Update, args: List[str]) -> str:
                 msg.delete()
             except BadRequest as err:
                 if err.message == "Message can't be deleted":
-                    bot.send_message(chat.id, "Tidak dapat menghapus semua pesan. Pesannya mungkin terlalu lama, saya mungkin "
-                                              "tidak memiliki hak menghapus, atau ini mungkin bukan supergrup.")
+                    bot.send_message(chat.id, "Cannot delete all messages. The messages may be too old, I might "
+                                              "not have delete rights, or this might not be a supergroup.")
 
                 elif err.message != "Message to delete not found":
                     LOGGER.exception("Error while purging chat messages.")
 
-            bot.send_message(chat.id, "Purge Complite.")
             return "<b>{}:</b>" \
                    "\n#PURGE" \
                    "\n<b>Admin:</b> {}" \
-                   "\nPurge <code>{}</code> pesan.".format(html.escape(chat.title),
+                   "\nPurged <code>{}</code> messages.".format(html.escape(chat.title),
                                                                mention_html(user.id, user.first_name),
                                                                delete_to - message_id)
 
     else:
-        msg.reply_text("Reply to the message to choose where to start cleaning.")
+        msg.reply_text("Reply to a message to select where to start purging from.")
 
     return ""
+
 
 
 @run_async
