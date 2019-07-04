@@ -3,7 +3,6 @@ import json
 import time
 from datetime import datetime
 from typing import Optional, List
-from hurry.filesize import size as sizee
 
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
