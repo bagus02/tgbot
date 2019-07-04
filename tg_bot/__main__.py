@@ -22,11 +22,11 @@ PM_START_TEXT = """
 Hi {}, my name is {}! I'm a group manager bot.
 You can find the list of available command with /help
 
-I'm a group manager bot maintained by [this dude](tg://user?id={}). Big Thanks for Paul Larsen & Skittles9823 for making it opensource ,
+I'm a group manager bot maintained by [this dude](tg://user?id={}). Big Thanks for Paul Larsen for making it opensource,
 
-and am fully Open-source you can find what makes me tick [here](github.com/bagus02/tgbot)!
+And am fully Open-source you can find what makes me tick [here](github.com/bagus02/tgbot)!
 
-requests to my contact , @aflky02, with any bugs or questions!
+Requests to my contact , @aflky02, with any bugs or questions!
 
 _Want to add me to your group?_ [Click here!](telegram.me/DirtyRegetBot?startgroup=add)
 """
