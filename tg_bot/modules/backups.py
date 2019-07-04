@@ -7,21 +7,21 @@ from telegram import Message, Chat, Update, Bot
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async, Filters
 
-import emilia.modules.sql.notes_sql as sql
-from emilia import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, spamfilters, TEMPORARY_DATA
-from emilia.__main__ import DATA_IMPORT
-from emilia.modules.helper_funcs.chat_status import user_admin
-from emilia.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from emilia.modules.helper_funcs.msg_types import get_note_type
-from emilia.modules.rules import get_rules
-import emilia.modules.sql.rules_sql as rulessql
-from emilia.modules.sql import warns_sql as warnssql
-import emilia.modules.sql.blacklist_sql as blacklistsql
-from emilia.modules.sql import disable_sql as disabledsql
-from emilia.modules.sql import cust_filters_sql as filtersql
-import emilia.modules.sql.welcome_sql as welcsql
-import emilia.modules.sql.locks_sql as locksql
-from emilia.modules.connection import connected
+import tg_bot.modules.sql.notes_sql as sql
+from tg_bot import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, spamfilters, TEMPORARY_DATA
+from tg_bot.__main__ import DATA_IMPORT
+from tg_bot.modules.helper_funcs.chat_status import user_admin
+from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from tg_bot.modules.helper_funcs.msg_types import get_note_type
+from tg_bot.modules.rules import get_rules
+import tg_bot.modules.sql.rules_sql as rulessql
+from tg_bot.modules.sql import warns_sql as warnssql
+import tg_bot.modules.sql.blacklist_sql as blacklistsql
+from tg_bot.modules.sql import disable_sql as disabledsql
+from tg_bot.modules.sql import cust_filters_sql as filtersql
+import tg_bot.modules.sql.welcome_sql as welcsql
+import tg_bot.modules.sql.locks_sql as locksql
+from tg_bot.modules.connection import connected
 
 @run_async
 @user_admin
@@ -314,10 +314,10 @@ def get_chat(chat_id, chat_data):
 		return {"status": False, "value": False}
 
 
-__mod_name__ = "Pencadangan"
+__mod_name__ = "Backups"
 
 __help__ = """
-*Hanya admin:*
+*Only Admin:*
  - /import: balas ke file cadangan grup butler/emilia untuk mengimpor sebanyak mungkin, membuat transfer menjadi sangat mudah! \
  Catatan bahwa file/foto tidak dapat diimpor karena pembatasan telegram.
  - /export: export data grup, yang akan di export adalah: peraturan, catatan (dokumen, gambar, musik, video, audio, voice, teks, tombol teks). \
