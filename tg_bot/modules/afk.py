@@ -22,7 +22,7 @@ def afk(bot: Bot, update: Update):
         reason = ""
 
     sql.set_afk(update.effective_user.id, reason)
-    update.effective_message.reply_text("{} is now AFK!".format(update.effective_user.first_name))
+    update.effective_message.reply_text("{} is now Away From Keyboard!".format(update.effective_user.first_name))
 
 
 @run_async
@@ -66,10 +66,6 @@ def reply_afk(bot: Bot, update: Update):
                     else:
                         res = "{} is AFK! says its because of:\n{}".format(fst_name, reason)
                     message.reply_text(res)
-
-
-def __gdpr__(user_id):
-    sql.rm_afk(user_id)
 
 
 __help__ = """
