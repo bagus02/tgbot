@@ -1,7 +1,12 @@
 tg_bot/config.py
 *.pyc
 .idea/
+logfile
 .project
 .pydevproject
 .directory
 .vscode
+backups/
+.directory
+log.err
+log.log
