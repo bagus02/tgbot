@@ -14,3 +14,11 @@ alphabet_detector
 kbbi	
 googletrans	
 lxml
+nltk
+aiohttp>=2.2.5
+Pillow>=4.2.0
+#AEX
+hurry.filesize
+#translator
+beautifulsoup4==4.6.3
+tldextract
