@@ -57,7 +57,8 @@ if ENV:
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
-    TEMPORARY_DATA = Config.TEMPORARY_DATA
+    TEMPORARY_DATA = os.environ.get('TEMPORARY_DATA', None)
+
 
 
 else:
@@ -100,6 +101,8 @@ else:
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
+    TEMPORARY_DATA = Config.TEMPORARY_DATA
+
 
 
 SUDO_USERS.add(OWNER_ID)
