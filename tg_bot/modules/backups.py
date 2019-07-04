@@ -8,20 +8,20 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async, Filters
 
 import tg_bot.modules.sql.notes_sql as sql
-from tg_bot import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, spamfilters, TEMPORARY_DATA
-from tg_bot.__main__ import DATA_IMPORT
-from tg_bot.modules.helper_funcs.chat_status import user_admin
-from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from tg_bot.modules.helper_funcs.msg_types import get_note_type
-from tg_bot.modules.rules import get_rules
+from telegram import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, spamfilters, TEMPORARY_DATA
+from telegram.__main__ import DATA_IMPORT
+from telegram.modules.helper_funcs.chat_status import user_admin
+from telegram.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from telegram.modules.helper_funcs.msg_types import get_note_type
+from telegram.modules.rules import get_rules
 import tg_bot.modules.sql.rules_sql as rulessql
-from tg_bot.modules.sql import warns_sql as warnssql
+from telegram.modules.sql import warns_sql as warnssql
 import tg_bot.modules.sql.blacklist_sql as blacklistsql
-from tg_bot.modules.sql import disable_sql as disabledsql
-from tg_bot.modules.sql import cust_filters_sql as filtersql
+from telegram.modules.sql import disable_sql as disabledsql
+from telegram.modules.sql import cust_filters_sql as filtersql
 import tg_bot.modules.sql.welcome_sql as welcsql
 import tg_bot.modules.sql.locks_sql as locksql
-from tg_bot.modules.connection import connected
+from telegram.modules.connection import connected
 
 @run_async
 @user_admin
