@@ -10,12 +10,12 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, run_async, Filters
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from haruka import dispatcher, LOGGER
-from haruka.__main__ import GDPR
-from haruka.__main__ import STATS, USER_INFO
-from haruka.modules.disable import DisableAbleCommandHandler
-from haruka.modules.helper_funcs.extraction import extract_user
-from haruka.modules.helper_funcs.filters import CustomFilters
+from tg_bot import dispatcher, LOGGER
+from tg_bot.__main__ import GDPR
+from tg_bot.__main__ import STATS, USER_INFO
+from tg_bot.modules.disable import DisableAbleCommandHandler
+from tg_bot.modules.helper_funcs.extraction import extract_user
+from tg_bot.modules.helper_funcs.filters import CustomFilters
 
 from requests import get
 
