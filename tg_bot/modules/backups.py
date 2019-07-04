@@ -13,14 +13,6 @@ from telegram.__main__ import DATA_IMPORT
 from telegram.modules.helper_funcs.chat_status import user_admin
 from telegram.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from telegram.modules.helper_funcs.msg_types import get_note_type
-from telegram.modules.rules import get_rules
-import tg_bot.modules.sql.rules_sql as rulessql
-from telegram.modules.sql import warns_sql as warnssql
-import tg_bot.modules.sql.blacklist_sql as blacklistsql
-from telegram.modules.sql import disable_sql as disabledsql
-from telegram.modules.sql import cust_filters_sql as filtersql
-import tg_bot.modules.sql.welcome_sql as welcsql
-import tg_bot.modules.sql.locks_sql as locksql
 from telegram.modules.connection import connected
 
 @run_async
