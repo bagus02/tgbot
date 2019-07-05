@@ -324,6 +324,18 @@ def echo(bot: Bot, update: Update):
 
 
 @run_async
+def ping(bot: Bot, update: Update):
+	spam = spamfilters(update.effective_message.text, update.effective_message.from_user.id, update.effective_chat.id, update.effective_message)
+	if spam == True:
+		return
+	start_time = time.time()
+	test = update.effective_message.reply_text("Pong!")
+	end_time = time.time()
+	ping_time = float(end_time - start_time)
+	bot.editMessageText(chat_id=update.effective_chat.id, message_id=test.message_id,
+						text=tl(update.effective_message, "Pong!\nSpeed: {0:.2f} detik").format(round(ping_time, 2) % 60))
+
+@run_async
 def gdpr(bot: Bot, update: Update):
     update.effective_message.reply_text("Deleting identifiable data...")
     for mod in GDPR:
