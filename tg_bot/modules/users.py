@@ -1,6 +1,4 @@
 import html
-from io import BytesIO
-from time import sleep
 from typing import Optional, List
 
 from telegram import TelegramError, Chat, Message
