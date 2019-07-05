@@ -1,6 +1,6 @@
 import threading
 
-from sqlalchemy import Column, Integer, UnicodeText, String, ForeignKey, UniqueConstraint, func
+from sqlalchemy import Column, Integer, UnicodeText, String, ForeignKey, UniqueConstraint, func, Boolean
 
 from tg_bot import dispatcher
 from tg_bot.modules.sql import BASE, SESSION
@@ -23,6 +23,7 @@ class Chats(BASE):
     __tablename__ = "chats"
     chat_id = Column(String(14), primary_key=True)
     chat_name = Column(UnicodeText, nullable=False)
+    restricted = Column(Boolean, default=False)
 
     def __init__(self, chat_id, chat_name):
         self.chat_id = str(chat_id)
@@ -138,6 +139,38 @@ def get_user_num_chats(user_id):
         SESSION.close()
 
 
+def get_chatname_by_chatid(chat_id):
+    try:
+        chat = SESSION.query(Chats).get(str(chat_id))
+        if chat:
+            return chat.chat_name
+        return None
+    finally:
+        SESSION.close()
+
+
+def set_restriction(chat_id, chat_name, restricted):
+    with INSERTION_LOCK:
+        curr = SESSION.query(Chats).get(str(chat_id))
+        if not curr:
+            curr = Chats(str(chat_id), chat_name)
+    
+        curr.restricted = restricted
+
+        SESSION.add(curr)
+        SESSION.commit()
+
+
+def get_restriction(chat_id):
+    rest = SESSION.query(Chats).get(str(chat_id))
+    SESSION.close()
+
+    if rest:
+        return rest.restricted
+
+    return False
+
+
 def num_chats():
     try:
         return SESSION.query(Chats).count()
@@ -170,17 +203,3 @@ def migrate_chat(old_chat_id, new_chat_id):
 
 
 ensure_bot_in_db()
-
-
-def del_user(user_id):
-    with INSERTION_LOCK:
-        curr = SESSION.query(Users).get(user_id)
-        if curr:
-            SESSION.delete(curr)
-            SESSION.commit()
-            return True
-
-        ChatMembers.query.filter(ChatMembers.user == user_id).delete()
-        SESSION.commit()
-        SESSION.close()
-    return False
