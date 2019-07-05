@@ -10,7 +10,6 @@ from telegram import ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from pythonping import ping
 from tg_bot import dispatcher, OWNER_ID, SUDO_USERS, SUPPORT_USERS, WHITELIST_USERS, BAN_STICKER
 from tg_bot.__main__ import GDPR
 from tg_bot.__main__ import STATS, USER_INFO
@@ -325,18 +324,6 @@ def echo(bot: Bot, update: Update):
 
 
 @run_async
-def ping(bot: Bot, update: Update):
-	spam = spamfilters(update.effective_message.text, update.effective_message.from_user.id, update.effective_chat.id, update.effective_message)
-	if spam == True:
-		return
-	start_time = time.time()
-	test = update.effective_message.reply_text("Pong!")
-	end_time = time.time()
-	ping_time = float(end_time - start_time)
-	bot.editMessageText(chat_id=update.effective_chat.id, message_id=test.message_id,
-						text=tl(update.effective_message, "Pong!\nSpeed: {0:.2f} detik").format(round(ping_time, 2) % 60))
-
-@run_async
 def gdpr(bot: Bot, update: Update):
     update.effective_message.reply_text("Deleting identifiable data...")
     for mod in GDPR:
@@ -426,7 +413,6 @@ dispatcher.add_handler(RUNS_HANDLER)
 dispatcher.add_handler(SLAP_HANDLER)
 dispatcher.add_handler(INFO_HANDLER)
 dispatcher.add_handler(ECHO_HANDLER)
-dispatcher.add_handler(PING_HANDLER
 dispatcher.add_handler(MD_HELP_HANDLER)
 dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(GDPR_HANDLER)
